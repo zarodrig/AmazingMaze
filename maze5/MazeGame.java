@@ -877,7 +877,6 @@ public class MazeGame {
 	}
 
 
-
 	// Use this to clear the screen taken from source: 	
 	//  https://stackoverflow.com/questions/2979383/java-clear-the-console		
 	/**
@@ -891,30 +890,21 @@ public class MazeGame {
 
 	        if (os.contains("Windows"))
 	        {
-	            //Runtime.getRuntime().exec("cls"); // doesn't work
-				System.out.print("\033[H\033[2J");  
-				System.out.flush(); 
+				new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
 	        }
 	        else
 	        {
-			System.out.print("\033[H\033[2J");  
-			System.out.flush(); 
-			//Runtime.getRuntime().exec("clear");
+				System.out.print("\033[H\033[2J");  
+				System.out.flush(); 
+				//Runtime.getRuntime().exec("clear");
 	        }
 	    }
 	    catch (final Exception e)
 	    {
 	       System.out.println(e.getMessage()); //  Handle any exceptions.
+	       e.printStackTrace();
 	    }
 	}
-
-	
-	// Use this to clear the screen taken from source: 	
-	//  https://stackoverflow.com/questions/2979383/java-clear-the-console
-	//public static void clearScreen() {  
-	// System.out.print("\033[H\033[2J");  
-	// System.out.flush();  
-	//}  
 			
 	
 } // class ending brace
