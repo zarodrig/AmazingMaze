@@ -1,6 +1,11 @@
 # Compiled class file
 *.class
 
+~
+~/
+~/.config
+~/.config/*
+
 # Log file
 *.log
 
